@@ -1,0 +1,1 @@
+# Repositorio para guardar configuracao de diversos ambientes/linguagens
