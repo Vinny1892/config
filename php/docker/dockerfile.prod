@@ -1,4 +1,5 @@
 FROM  alpine:3.12
+
 ENV USER=nginx
 ENV UID=12345
 ENV GID=23456
@@ -48,9 +49,9 @@ COPY server/nginx/nginx.conf  /etc/nginx/
 COPY server/nginx/app.conf    /etc/nginx/conf.d/
 COPY server/nginx/php.conf    /etc/nginx/conf.d/
 
-COPY ./server/event-feedback/ .
+COPY ./nginx/ .
 
-RUN composer install
+RUN composer install --no-ansi --no-dev --no-interaction --no-plugins --no-progress --no-scripts --no-suggest --optimize-autoloader
 RUN chmod 775   -R  storage 
 #RUN chmod 775 -R  boostrap/cache/   
 RUN chown nginx -R .
